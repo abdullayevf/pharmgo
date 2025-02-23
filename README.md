@@ -52,4 +52,4 @@ PharmGo is a full-stack application for managing pharmacy inventory, suppliers, 
       ```
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.# pharmgo
