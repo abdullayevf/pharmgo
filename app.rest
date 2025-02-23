@@ -1,0 +1,5 @@
+###
+
+GET http://localhost:5000/auth/profile
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JiNDVkMTc1YTdlMmNlMjNlOWExNTciLCJ1c2VybmFtZSI6ImxhdGlwMSIsImlhdCI6MTc0MDMyNzQ5NywiZXhwIjoxNzQwMzMxMDk3fQ._PYSb7uaVjAH-oBasInYvMpl4OLiEkLVn8x5qupbI7g
