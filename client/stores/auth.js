@@ -7,7 +7,7 @@ export const useAuthStore = defineStore("auth", {
     isAuthenticated: false,
     isLoading: false,
     error: null,
-    baseUri: "http://localhost:5000",
+    baseUri: "https://pharmgo.onrender.com/",
   }),
 
   getters: {
