@@ -7,7 +7,7 @@ export const useAuthStore = defineStore("auth", {
     isAuthenticated: false,
     isLoading: false,
     error: null,
-    baseUri: "https://pharmgo.onrender.com/",
+    baseUri: "https://pharmgo.onrender.com",
   }),
 
   getters: {
@@ -49,7 +49,7 @@ export const useAuthStore = defineStore("auth", {
         this.isAuthenticated = true;
 
         localStorage.setItem("token", data.value.token);
-
+        navigateTo("/dashboard")
         return data.value;
       } catch (err) {
         this.setError(err.message || "Failed to login");

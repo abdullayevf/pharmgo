@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const authStore = useAuthStore()
+const authStore = useAuthStore();
 
 const formSchema = toTypedSchema(
   z.object({
@@ -26,35 +26,33 @@ const formSchema = toTypedSchema(
 const { handleSubmit, isSubmitting } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    username: '',
-    password: ''
-  }
-})
+    username: "",
+    password: "",
+  },
+});
 
 const onSubmit = handleSubmit(async (values) => {
   try {
-    await authStore.login(values)
-    navigateTo('/dashboard')
-  } catch (error) {
-    // Handle login error
-  }
-})
+    await authStore.login(values);
+    navigateTo("/dashboard");
+  } catch (error) {}
+});
 
-
-const isValid = useIsFormValid()
-
-
+const isValid = useIsFormValid();
 </script>
 
 <template>
-  <form @submit.prevent="onSubmit" class="bg-white p-8 min-w-80 rounded space-y-4">
+  <form
+    @submit.prevent="onSubmit"
+    class="bg-white p-8 min-w-80 rounded space-y-4"
+  >
     <h2 class="font-bold text-2xl">Kirish</h2>
 
     <FormField v-slot="{ componentField }" name="username">
       <FormItem>
         <FormLabel>Foydalanuvchi</FormLabel>
         <FormControl>
-          <Input type="text" placeholder="namuna" v-bind="componentField"/>
+          <Input type="text" placeholder="namuna" v-bind="componentField" />
         </FormControl>
         <FormDescription>
           <!-- This is your public display name. -->
@@ -75,8 +73,6 @@ const isValid = useIsFormValid()
         <FormMessage />
       </FormItem>
     </FormField>
-    <Button type="submit" :disabled="!isValid || isSubmitting">
-      Kirish
-    </Button>
+    <Button type="submit" :disabled="!isValid || isSubmitting"> Kirish </Button>
   </form>
 </template>
