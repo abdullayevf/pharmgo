@@ -1,11 +1,12 @@
+<script setup lang="ts">
+import Toaster from "@/components/ui/toast/Toaster.vue";
+</script>
+
 <template>
-  <div>
-    <div class="w-full min-h-screen bg-slate-100">
-      <div
-        class="container mx-auto px-4 pt-24 flex justify-center flex-col items-center"
-      >
-        <NuxtPage />
-      </div>
-    </div>
+  <Toaster />
+  <div class="bg-slate-200">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>

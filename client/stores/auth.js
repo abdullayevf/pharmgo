@@ -41,7 +41,12 @@ export const useAuthStore = defineStore("auth", {
         });
 
         if (error.value) {
-          throw new Error(error.value.message || "Failed to login");
+          // Extract error message from the API response if available
+          if (error.value.data && error.value.data.error) {
+            throw new Error(error.value.data.error);
+          } else {
+            throw new Error(error.value.message || "Failed to login");
+          }
         }
 
         this.setUser(data.value.user);
@@ -49,7 +54,7 @@ export const useAuthStore = defineStore("auth", {
         this.isAuthenticated = true;
 
         localStorage.setItem("token", data.value.token);
-        navigateTo("/dashboard")
+        navigateTo("/dashboard");
         return data.value;
       } catch (err) {
         this.setError(err.message || "Failed to login");
