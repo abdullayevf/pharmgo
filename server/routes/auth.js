@@ -4,7 +4,7 @@ import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import authMiddleware from "../middleware/authMiddleware.js"
+import authMiddleware from "../middleware/authMiddleware.js";
 
 dotenv.config(); // Load environment variables
 
@@ -116,7 +116,7 @@ router.post("/login", async (req, res) => {
         _id: user._id,
         username: user.username,
         email: user.email,
-        role: user.role
+        role: user.role,
       },
       token: accessToken,
     });
@@ -128,10 +128,10 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Protected route trial
+// Token validation endpointt
 
-router.get("/profile", authMiddleware, (req, res) => {
-  res.json({msg: "Welcome to your profile, sir", user: req.user})
-}) 
+router.get("/auth/validate", authMiddleware, (req, res) => {
+  res.json({ valid: true, user: req.user });
+});
 
 export default router;
